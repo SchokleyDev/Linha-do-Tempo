@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Linha do Tempo dos Processadores - Anos 80</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1e1e2f;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slide {
+      max-width: 800px;
+      padding: 30px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #2a2a40, #1a1a2a);
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+      position: absolute;
+      text-align: center;
+      z-index: 1; /* camada padrão */
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translateY(0);
+      z-index: 10; /* slide ativo sempre na frente */
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #00d4ff;
+    }
+
+    h2 {
+      color: #ffc107;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .button {
+      margin-top: 20px;
+      background-color: #00d4ff;
+      color: black;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background-color: #00a2c0;
+    }
+  </style>
+</head>
+<body>
+
+<div id="presentation">
+  <div class="slide active">
+    <h1>📅 Linha do Tempo dos Processadores (Anos 80)</h1>
+    <p>Clique em "Próximo" para conhecer os principais processadores da década de 1980!</p>
+    <button class="button" onclick="nextSlide()">Próximo ▶</button>
+  </div>
+
+  <div class="slide">
+    <h2>🟣 1982 – Intel 80286</h2>
+    <p><strong>Avanço:</strong> Modo protegido e multitarefa.</p>
+    <p><strong>Comparado ao 8086:</strong> Até 3x mais rápido.</p>
+    <p><strong>Curiosidade:</strong> 134.000 transistores. Usado no IBM PC AT.</p>
+    <button class="button" onclick="nextSlide()">Próximo ▶</button>
+  </div>
+
+  <div class="slide">
+    <h2>🔵 1984 – Motorola 68000</h2>
+    <p><strong>Avanço:</strong> Registradores de 32 bits.</p>
+    <p><strong>Comparado ao 286:</strong> Melhor para gráficos.</p>
+    <p><strong>Curiosidade:</strong> Base do Macintosh, Amiga e Sega Genesis.</p>
+    <button class="button" onclick="nextSlide()">Próximo ▶</button>
+  </div>
+
+  <div class="slide">
+    <h2>🔵 1985 – Intel 80386</h2>
+    <p><strong>Avanço:</strong> Primeira CPU x86 de 32 bits.</p>
+    <p><strong>Comparado ao 286:</strong> Maior memória e multitarefa.</p>
+    <p><strong>Curiosidade:</strong> 275.000 transistores. Popular com Windows 3.x.</p>
+    <button class="button" onclick="nextSlide()">Próximo ▶</button>
+  </div>
+
+  <div class="slide">
+    <h2>🔵 1987 – Sun SPARC</h2>
+    <p><strong>Avanço:</strong> Arquitetura RISC moderna.</p>
+    <p><strong>Comparado ao x86:</strong> Mais eficiente por ciclo.</p>
+    <p><strong>Curiosidade:</strong> Usado em estações científicas UNIX.</p>
+    <button class="button" onclick="nextSlide()">Próximo ▶</button>
+  </div>
+
+  <div class="slide">
+    <h2>🔵 1989 – Intel i860</h2>
+    <p><strong>Avanço:</strong> Arquitetura paralela com VLIW.</p>
+    <p><strong>Comparado ao 386:</strong> Mais rápido, mas difícil de usar.</p>
+    <p><strong>Curiosidade:</strong> Mais de 1 milhão de transistores!</p>
+    <button class="button" onclick="restartSlides()">🔄 Reiniciar</button>
+  </div>
+</div>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".slide");
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+  }
+
+  function nextSlide() {
+    if (currentSlide < slides.length - 1) {
+      currentSlide++;
+      showSlide(currentSlide);
+    }
+  }
+
+  function restartSlides() {
+    currentSlide = 0;
+    showSlide(currentSlide);
+  }
+</script>
+
+</body>
+</html>
